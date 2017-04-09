@@ -24,7 +24,7 @@
   <body>
     <%
       var msg_navbar_login = "" 
-      if(req.session.authorized){
+      if(logged){
         msg_navbar_login = "My page"
       } else{
         msg_navbar_login = "Login"

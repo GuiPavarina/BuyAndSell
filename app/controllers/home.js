@@ -5,6 +5,14 @@ module.exports.home = function(application, req, res){
 		return;
 	}
 
-	res.render('home')	
+	res.render('home',{logged:req.session.authorized})	
+
+}
+
+module.exports.logout = function(application, req, res){
+
+	req.session.destroy( function(err){
+		res.render('index', {logged : false});
+	});
 
 }

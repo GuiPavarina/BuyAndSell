@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
-//mongoose.createConnection('mongodb://localhost/db_buyandsell');
 
+//Product Schema
 var ProductSchema = mongoose.Schema({
  		name: String
  	});

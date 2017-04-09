@@ -1,7 +1,7 @@
 var Product = require('../models/product');
 
 module.exports.index = function(application, req, res){
-	res.render('index',{req: req} );
+	res.render('index',{logged:req.session.authorized} );
 }
 
 module.exports.login = function(application, req, res){
@@ -13,7 +13,7 @@ module.exports.login = function(application, req, res){
 }
 
 module.exports.singup = function(application, req, res){
-	res.render('singup',{validation:{},req:req});
+	res.render('singup',{validation:{},logged:req.session.authorized});
 }
 
 module.exports.home = function(application, req, res){
@@ -32,7 +32,7 @@ module.exports.products = function(application, req, res){
 			return
 		}
 
-		res.render('products',{products : result,req: req});
+		res.render('products',{products : result,logged:req.session.authorized});
 	})
 
 
