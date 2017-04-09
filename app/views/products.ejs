@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Buy & Sell</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/justified-nav.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <%
+      var msg_navbar_login = "" 
+      if(req.session.authorized){
+        msg_navbar_login = "My page"
+      } else{
+        msg_navbar_login = "Login"
+      }
+    %>
+
+    <div class="container">
+
+      <!-- The justified navigation menu is meant for single line per list item.
+           Multiple lines will require custom code not provided by Bootstrap. -->
+      <div class="masthead">
+        <h3 class="text-muted">Buy & Sell</h3>
+        <nav>
+          <ul class="nav nav-justified">
+            <li><a href="/">Home</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact us</a></li>
+            <li><a href="/singup">Sing Up</a></li>
+            <li><a href="/login"><%= msg_navbar_login%></a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <h3>Our ten newest products for sale</h3>     
+       
+      <div class="row">
+        <% for(var i = 0 ; i < products.length; i++){ %>
+          <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+                <img src="http://placehold.it/320x150" alt="">
+                <div class="caption">
+                    <h4 class="pull-right">$00.00</h4>
+                    <h4><a href="#"><%= products[i].name %></a>
+                    </h4>
+                    <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="ratings">
+                    <p class="pull-right">12 reviews</p>
+                    <p>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    </p>
+                </div>
+            </div>
+          </div>
+        <% } %>
+      </div>
+
+
+      <!-- Site footer -->
+      <footer class="footer">
+        <p>&copy; 2017 Buy & Sell, Inc. Guilherme Pavarina de Sá</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>

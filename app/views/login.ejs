@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Buy & Sell</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/justified-nav.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <!-- The justified navigation menu is meant for single line per list item.
+           Multiple lines will require custom code not provided by Bootstrap. -->
+      <div class="masthead">
+        <h3 class="text-muted">Buy & Sell</h3>
+        <nav>
+          <ul class="nav nav-justified">
+            <li><a href="/">Home</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact us</a></li>
+            <li><a href="/singup">Sing Up</a></li>
+            <li><a href="/login">Login</a></li>
+          </ul>
+        </nav>
+      </div>
+
+       <div class="container">    
+        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+          <div class="panel panel-info" >
+            <div class="panel-heading">
+              <div class="panel-title">Login</div>
+              <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div>
+            </div>     
+
+            <div style="padding-top:30px" class="panel-body" >
+
+                <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                                
+                <form id="loginform" class="form-horizontal" role="form" action="/authenticate" method="post">
+                                        
+                  <div style="margin-bottom: 25px" class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username">
+                  </div>
+                                      
+                  <div style="margin-bottom: 25px" class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input id="login-password" type="password" class="form-control" name="password" placeholder="password">
+                  </div>
+                                          
+                  <div class="input-group">
+                    <div class="checkbox">
+                      <label>
+                        <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
+                      </label>
+                    </div>
+                  </div>
+
+
+                  <div style="margin-top:10px" class="form-group">
+                                          <!-- Button -->
+                    <div class="col-sm-12 controls">
+                      <button id="btn-login" type = "submmit" class="btn btn-success">Login</button>
+                    </div>
+                  </div>
+
+
+                    <div class="form-group">
+                        <div class="col-md-12 control">
+                            <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                                Don't have an account! 
+                            <a href="/singup">
+                                Sign Up Here
+                            </a>
+                            </div>
+                        </div>
+                    </div>    
+              </form>     
+            </div>                     
+          </div>  
+        </div>
+         
+    </div>
+    
+    
+
+      <!-- Site footer -->
+      <footer class="footer">
+        <p>&copy; 2017 Buy & Sell, Inc. Guilherme Pavarina de Sá</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>
