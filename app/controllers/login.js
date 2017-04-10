@@ -11,6 +11,7 @@ module.exports.authenticate = function(application, req, res){
 			return
 		}
 
+		req.session.username = req.body.username
 		req.session.authorized = true;
 
 		res.redirect('home')
