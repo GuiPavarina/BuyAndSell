@@ -3,7 +3,11 @@ module.exports = function(application){
 		application.app.controllers.home.logout(application,req,res);
 	});
 	
-	application.get('/addproduct', function(req, res){
+	application.get('/form_insert_product', function(req, res){
+		application.app.controllers.home.form_insert_product(application,req,res);
+	});
+
+	application.post('/addproduct', function(req, res){
 		application.app.controllers.home.addproduct(application,req,res);
 	});
 }

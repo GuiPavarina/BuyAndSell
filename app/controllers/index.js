@@ -6,7 +6,7 @@ module.exports.index = function(application, req, res){
 
 module.exports.login = function(application, req, res){
 	if(req.session.authorized){
-		res.render('home',{logged:{}, req: req})
+		res.render('home',{logged:{}, req: req, msg: {}});
 	} else {
 		res.render('login');
 	}
@@ -17,7 +17,7 @@ module.exports.singup = function(application, req, res){
 }
 
 module.exports.home = function(application, req, res){
-	res.render('home',{logged:{}, req: req});
+	res.render('home',{logged:{}, req: req, msg: {}});
 }
 
 module.exports.products = function(application, req, res){
