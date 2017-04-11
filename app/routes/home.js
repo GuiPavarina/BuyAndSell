@@ -10,4 +10,8 @@ module.exports = function(application){
 	application.post('/addproduct', function(req, res){
 		application.app.controllers.home.addproduct(application,req,res);
 	});
+
+	application.get('/myproducts', function(req, res){
+		application.app.controllers.home.myproducts(application,req,res);
+	});
 }

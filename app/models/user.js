@@ -18,8 +18,7 @@ var UserSchema = mongoose.Schema({
 	},
 	lastname: {
 		type: String
-	},
-	products: []	
+	}	
 });
 
 var User = mongoose.model('User', UserSchema);

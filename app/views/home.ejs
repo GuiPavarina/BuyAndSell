@@ -32,6 +32,16 @@
           });
         });
 
+        $('#view_products').click(function(){
+          $.ajax({
+            url: '/myproducts',
+            method: "get",
+            success: function(data){
+              $('#main-menu').html(data)
+            }
+          });
+        })
+
       });
     </script>
 
@@ -52,7 +62,7 @@
             <li><a href="#">Services</a></li>
             <li><a href="#">Contact us</a></li>
             <li><a href="/home">My page</a></li>
-            <li><a href="/logout">Logout</a></li>
+            <li><a href="/logout" style="color: red;">Logout</a></li>
           </ul>
         </nav>
       </div>
@@ -60,7 +70,7 @@
       <div class="row" style="margin-top: 20px;">
         <div class="col-sm-4 col-md-3 sidebar">
           <div class="list-group">
-            <a href="#" class="list-group-item"> My products (not working)<span class="badge">0</span></a>
+            <a id="view_products" class="list-group-item"> My products <span class="badge">0</span></a>
             <a id="add_product" class="list-group-item"> New product </a>
             <a href="#" class="list-group-item"> All products for sale (not working)</a>
           </div>

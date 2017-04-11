@@ -61,6 +61,7 @@ module.exports.addproduct = function(application, req, res){
 	var product = new Product({
 		_id : objectId,
 		name : req.body.name,
+		username : req.session.username,
 		price: req.body.value,
  		description : req.body.description
 	});
@@ -75,4 +76,24 @@ module.exports.addproduct = function(application, req, res){
 	var msg = "Produto inserido com sucesso"
 
 	res.render('home',{logged:req.session.authorized, req:req, msg : msg})	
+}
+
+module.exports.myproducts = function(application, req, res){
+
+	if(req.session.authorized !== true){
+		res.send('Usuário precisa fazer login');
+		return;
+	}
+
+	var username = req.session.username;
+
+	Product.find({username : username},function(err, result){
+		if(err){
+			res.send('fail')
+			return
+		}
+		res.render('myproducts',{products : result})
+	})
+	
+
 }

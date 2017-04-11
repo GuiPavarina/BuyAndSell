@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 var ProductSchema = mongoose.Schema({
 		_id: {},
  		name: String,
+ 		username: String,
  		price: Number,
  		description : String
  	}, { _id: false });
