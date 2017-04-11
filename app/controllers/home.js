@@ -39,25 +39,6 @@ module.exports.addproduct = function(application, req, res){
 		return;
 	}
 
-		// Get a timestamp in seconds
-	var timestamp = Math.floor(new Date().getTime()/1000);
-	// Create a date with the timestamp
-	var timestampDate = new Date(timestamp*1000);
-
-	// Create a new ObjectID with a specific timestamp
-	var objectId = new ObjectID(timestamp);
-
-	var username = req.session.username;
-	
-	console.log(objectId)
-
-	User.update({ username: username },{ "$push": { products: objectId } },function(err){
-		if(err){
-			res.send('FAIL');
-			return;
-		}
-	})
-
 	var product = new Product({
 		_id : objectId,
 		name : req.body.name,
@@ -75,7 +56,7 @@ module.exports.addproduct = function(application, req, res){
 
 	var msg = "Produto inserido com sucesso"
 
-	res.render('home',{logged:req.session.authorized, req:req, msg : msg})	
+	res.render('home',{logged:req.session.authorized, req:req , msg : msg})	
 }
 
 module.exports.myproducts = function(application, req, res){
