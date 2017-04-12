@@ -22,18 +22,14 @@ module.exports.home = function(application, req, res){
 
 module.exports.products = function(application, req, res){
 
-	var product = new Product({
-		  name: "Geladeira"
-	});
-
-	Product.find(function(err, result){
+	Product.find({},function(err, result) { 
 		if(err){
 			res.send('FAIL');
 			return
 		}
 
 		res.render('products',{products : result,logged:req.session.authorized});
-	})
+	}).sort({created: 'desc'}).limit(10);
 
 
 }

@@ -40,7 +40,6 @@ module.exports.addproduct = function(application, req, res){
 	}
 
 	var product = new Product({
-		_id : objectId,
 		name : req.body.name,
 		username : req.session.username,
 		price: req.body.value,
@@ -74,7 +73,7 @@ module.exports.myproducts = function(application, req, res){
 			return
 		}
 		res.render('myproducts',{products : result})
-	})
+	}).sort({created: 'desc'})
 	
 
 }

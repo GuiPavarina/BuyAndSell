@@ -2,12 +2,12 @@ var mongoose = require('mongoose');
 
 //Product Schema
 var ProductSchema = mongoose.Schema({
-		_id: {},
  		name: String,
  		username: String,
  		price: Number,
- 		description : String
- 	}, { _id: false });
+ 		description : String,
+ 		created: { type: Date, default: Date.now }
+ 	});
 
 var Product = mongoose.model('Product', ProductSchema);
 
