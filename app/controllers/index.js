@@ -29,6 +29,7 @@ module.exports.products = function(application, req, res){
 		}
 
 		res.render('products',{products : result,logged:req.session.authorized});
+		
 	}).sort({created: 'desc'}).limit(10);
 
 

@@ -14,4 +14,8 @@ module.exports = function(application){
 	application.get('/myproducts', function(req, res){
 		application.app.controllers.home.myproducts(application,req,res);
 	});
+
+	application.get('/allproducts', function(req, res){
+		application.app.controllers.home.allproducts(application,req,res);
+	});
 }

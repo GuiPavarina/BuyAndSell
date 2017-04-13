@@ -9,6 +9,11 @@ module.exports.home = function(application, req, res){
 		return;
 	}
 
+	if(req.params.action === "insert"){
+		console.log("oi")
+		this.form_insert_product
+	}
+
 	res.render('home',{logged:req.session.authorized, req:req, msg :{}})	
 
 }
@@ -73,6 +78,24 @@ module.exports.myproducts = function(application, req, res){
 			return
 		}
 		res.render('myproducts',{products : result})
+	}).sort({created: 'desc'})
+	
+
+}
+
+module.exports.allproducts = function(application, req, res){
+
+	if(req.session.authorized !== true){
+		res.send('Usuário precisa fazer login');
+		return;
+	}
+
+	Product.find({},function(err, result){
+		if(err){
+			res.send('fail')
+			return
+		}
+		res.render('allproducts',{products : result})
 	}).sort({created: 'desc'})
 	
 

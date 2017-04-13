@@ -19,7 +19,9 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 
-    <script type="text/javascript">
+    <script type="text/javascript"> 
+
+
       $(document).ready( function(){
         
         $('#add_product').click(function(){
@@ -32,9 +34,19 @@
           });
         });
 
-        $('#view_products').click(function(){
+        $('#view_myproducts').click(function(){
           $.ajax({
             url: '/myproducts',
+            method: "get",
+            success: function(data){
+              $('#main-menu').html(data)
+            }
+          });
+        })
+
+        $('#view_products').click(function(){
+          $.ajax({
+            url: '/allproducts',
             method: "get",
             success: function(data){
               $('#main-menu').html(data)
@@ -70,9 +82,9 @@
       <div class="row" style="margin-top: 20px;">
         <div class="col-sm-4 col-md-3 sidebar">
           <div class="list-group">
-            <a id="view_products" class="list-group-item"> My products <span class="badge">0</span></a>
-            <a id="add_product" class="list-group-item"> New product </a>
-            <a href="#" class="list-group-item"> All products for sale (not working)</a>
+            <a id="view_myproducts" class="list-group-item" style="cursor: pointer;"> My products <span class="badge">0</span></a>
+            <a id="add_product" class="list-group-item" style="cursor: pointer;"> New product </a>
+            <a id="view_products" class="list-group-item" style="cursor: pointer;"> All products for sale </a>
           </div>
         </div>
 
