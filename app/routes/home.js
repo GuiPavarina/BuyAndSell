@@ -18,4 +18,16 @@ module.exports = function(application){
 	application.get('/allproducts', function(req, res){
 		application.app.controllers.home.allproducts(application,req,res);
 	});
+
+	application.get('/update', function(req, res){
+		application.app.controllers.home.update(application,req,res);
+	});
+
+	application.post('/update', function(req, res){
+		application.app.controllers.home.updateTrue(application,req,res);
+	});
+
+	application.get('/delete', function(req, res){
+		application.app.controllers.home.delete(application,req,res);
+	});
 }

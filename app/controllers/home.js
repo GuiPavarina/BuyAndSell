@@ -98,5 +98,65 @@ module.exports.allproducts = function(application, req, res){
 		res.render('allproducts',{products : result})
 	}).sort({created: 'desc'})
 	
+}
 
+module.exports.update = function(application, req, res){
+
+	if(req.session.authorized !== true){
+		res.send('Usuário precisa fazer login');
+		return;
+	}
+
+	var id = req.query.id_product;
+
+	Product.find({_id : id},function(err, result){
+		if(err){
+			res.send('fail')
+			return
+		}
+		res.render('update',{product : result})
+	})
+	
+}
+
+module.exports.delete = function(application, req, res){
+
+	if(req.session.authorized !== true){
+		res.send('Usuário precisa fazer login');
+		return;
+	}
+
+	var id = req.query.id_product;
+
+	Product.remove({ _id: id }, function(err) {
+	    if (err) {
+	    	res.send('fail')
+	    }
+  	});
+
+	var msg = "Product successfully removed!"
+
+  	res.render('home',{logged:req.session.authorized, req:req , msg : msg})	
+}
+
+module.exports.updateTrue = function(application, req, res){
+
+	if(req.session.authorized !== true){
+		res.send('Usuário precisa fazer login');
+		return;
+	}
+
+	var id = req.query.id_product;
+	var form = req.body;
+
+	Product.update({_id : id},{ description : form.description, price: form.value },{multi : false},function(err, result){
+		if(err){
+			res.send('fail')
+			return
+		}
+		var msg = "Product successfully updated!"
+
+  		res.render('home',{logged:req.session.authorized, req:req , msg : msg})	
+	})
+	
 }

@@ -12,14 +12,8 @@
                 <p> Created: <%= products[i].created.toLocaleString() %> </p>
             </div>
             <div class="ratings">
-                <p class="pull-right">12 reviews</p>
-                <p>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                </p>
+                <a type="button" href="/update?id_product=<%=products[i]._id%>" class="btn btn-info">Update</a>
+                <a type="button" href="/delete?id_product=<%=products[i]._id%>" class="btn btn-danger">Delete</a>
             </div>
         </div>
       </div>
