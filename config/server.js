@@ -44,6 +44,9 @@ consign()
 	.into(app);
 
 
+consign({cwd: process.cwd()+"/app"})
+
+
 /* exportar o objeto app */
 module.exports = app;
 
