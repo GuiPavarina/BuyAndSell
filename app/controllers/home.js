@@ -48,10 +48,9 @@ module.exports.addproduct = function(application, req, res){
 		name : req.body.name,
 		username : req.session.username,
 		price: req.body.value,
- 		description : req.body.description
+ 		description : req.body.description,
+ 		category: req.body.category
 	});
-	
-	console.log(req.body.category)
 
 	product.save(function(err){
 		if(err){
