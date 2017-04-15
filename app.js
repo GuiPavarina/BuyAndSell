@@ -1,7 +1,7 @@
 var app = require('./config/server');
 
-const port = 3000
+var port = process.env.PORT || 8080;
 
 app.listen(port, function(){
-	console.log(`Server running on port ${port}`);
+	console.log('Server running');
 })
