@@ -9,7 +9,7 @@ module.exports.register = function(application, req, res){
 	var errors = req.validationErrors();
 
 	if(errors){
-		res.render('singup',{validation: errors,logged:req.session.authorized });
+		res.render('signup',{validation: errors,logged:req.session.authorized });
 		return;
 	}
 

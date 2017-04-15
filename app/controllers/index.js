@@ -13,7 +13,7 @@ module.exports.login = function(application, req, res){
 }
 
 module.exports.singup = function(application, req, res){
-	res.render('singup',{validation:{},logged:req.session.authorized});
+	res.render('signup',{validation:{},logged:req.session.authorized});
 }
 
 module.exports.home = function(application, req, res){
