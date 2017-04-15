@@ -33,7 +33,7 @@ module.exports.register = function(application, req, res){
 	var message = {
 	    to: req.body.email,
 	    subject: ' Thank you !!',
-	    text: 'Welcome to Buy & Sell ' + req.body.firstname '!'
+	    text: 'Welcome to Buy & Sell ' + req.body.firstname + '!'
 	};
 	
 	user.save(function(err){
