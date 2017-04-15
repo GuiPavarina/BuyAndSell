@@ -6,6 +6,7 @@ var ProductSchema = mongoose.Schema({
  		username: String,
  		price: Number,
  		description : String,
+ 		category: String,
  		created: { type: Date, default: Date.now }
  	});
 

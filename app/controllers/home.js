@@ -51,6 +51,8 @@ module.exports.addproduct = function(application, req, res){
  		description : req.body.description
 	});
 	
+	console.log(req.body.category)
+
 	product.save(function(err){
 		if(err){
 			res.send('FAIL P');
