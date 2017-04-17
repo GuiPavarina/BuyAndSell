@@ -167,6 +167,7 @@ module.exports.product = function(application, req, res){
 			res.send('fail')
 			return
 		}
+		console.log(result)
 		res.render('product',{logged: req.session.authorized, product : result})
 	})
 	
