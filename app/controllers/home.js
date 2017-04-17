@@ -164,10 +164,10 @@ module.exports.updateTrue = function(application, req, res){
 
 module.exports.product = function(application, req, res){
 
-	if(req.session.authorized !== true){
+	/*if(req.session.authorized !== true){
 		res.send('Usuário precisa fazer login');
 		return;
-	}
+	}*/
 
 	res.render('product',{logged: req.session.authorized})
 	
