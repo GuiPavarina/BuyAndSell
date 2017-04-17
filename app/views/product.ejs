@@ -98,7 +98,7 @@
 
                         <% for (index in product[0].comments) { %>
 
-                            <% if( product[0].comments[index].username){ %>
+                            <% if( product[0].comments[index].commentname){ %>
 
                                 <div class="row">
                                     <div class="col-md-12">
@@ -107,7 +107,7 @@
                                         <span class="glyphicon glyphicon-star"></span>
                                         <span class="glyphicon glyphicon-star"></span>
                                         <span class="glyphicon glyphicon-star-empty"></span>
-                                        <%= product[0].comments[index].username %>
+                                        <%= product[0].comments[index].commentname %>
                                         <span class="pull-right">10 days ago(not working)</span>
                                         <p><%= product[0].comments[index].text %></p>
                                     </div>
