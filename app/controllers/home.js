@@ -167,7 +167,7 @@ module.exports.product = function(application, req, res){
 			res.send('fail')
 			return
 		}
-		
+
 		res.render('product',{logged: req.session.authorized, product : result})
 	})
 	
@@ -182,7 +182,7 @@ module.exports.comment = function(application, req, res){
 
 	var comment = new Comment({
 		text: req.body.comment,
-		username: req.session.username
+		commentname: req.session.username
 	})
 
 	var id = req.query.id_product;
