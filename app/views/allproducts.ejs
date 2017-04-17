@@ -6,7 +6,7 @@
             <img src="images/<%=products[i].category%>.jpg" style="max-height: 150px; max-width: 320px;">
             <div class="caption">
                 <h4 class="pull-right">$<%= products[i].price%></h4>
-                <h4><a href="#"><%= products[i].name %></a>
+                <h4><a href="/product?id_product=<%=products[i]._id%>"><%= products[i].name %></a>
                 </h4>
                 <p> <%= products[i].description %> </p>
                 <p> Created: <%= products[i].created.toLocaleString() %> </p>
