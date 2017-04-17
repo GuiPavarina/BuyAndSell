@@ -191,7 +191,7 @@ module.exports.comment = function(application, req, res){
 			res.send('fail')
 			return
 		}
-		res.send('oi')
+		res.render('product?id_product='+id)
 	})
 
 }
