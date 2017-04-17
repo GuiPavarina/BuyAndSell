@@ -30,4 +30,8 @@ module.exports = function(application){
 	application.get('/delete', function(req, res){
 		application.controllers.home.delete(application,req,res);
 	});
+
+	application.get('/product', function(req, res){
+		application.controllers.home.product(application,req,res);
+	});
 }

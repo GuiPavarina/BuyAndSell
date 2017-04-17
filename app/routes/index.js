@@ -14,5 +14,4 @@ module.exports = function(application){
 	application.get('/products', function(req, res){
 		application.controllers.index.products(application,req,res);
 	});
-
 }
