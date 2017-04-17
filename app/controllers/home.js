@@ -164,11 +164,16 @@ module.exports.updateTrue = function(application, req, res){
 
 module.exports.product = function(application, req, res){
 
-	/*if(req.session.authorized !== true){
-		res.send('Usuário precisa fazer login');
-		return;
-	}*/
+	var id = req.query.id_product;
 
-	res.render('product',{logged: req.session.authorized})
+	Product.find({_id : id},function(err, result){
+		if(err){
+			res.send('fail')
+			return
+		}
+		res.render('product',{logged: req.session.authorized, product : result})
+	})
+
+	
 	
 }
