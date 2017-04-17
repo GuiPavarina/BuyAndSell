@@ -1,11 +1,5 @@
 var mongoose = require('mongoose');
 
-var CommentSchema = mongoose.Schema({
-	text: String,
-	username: String,
-	created: { type: Date, default: Date.now }
-})
-
 //Product Schema
 var ProductSchema = mongoose.Schema({
  		name: String,
@@ -14,7 +8,7 @@ var ProductSchema = mongoose.Schema({
  		description : String,
  		category: String,
  		created: { type: Date, default: Date.now },
- 		comments : [CommentSchema]
+ 		comments : []
  	});
 
 var Product = mongoose.model('Product', ProductSchema);

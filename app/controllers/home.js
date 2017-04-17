@@ -1,5 +1,6 @@
 var User = require('../models/user');
 var Product = require('../models/product');
+var Comment = require('../models/comment');
 var ObjectID = require('mongodb').ObjectID;
 
 module.exports.home = function(application, req, res){
@@ -7,11 +8,6 @@ module.exports.home = function(application, req, res){
 	if(req.session.authorized !== true){
 		res.send('Usuário precisa fazer login');
 		return;
-	}
-
-	if(req.params.action === "insert"){
-		console.log("oi")
-		this.form_insert_product
 	}
 
 	res.render('home',{logged:req.session.authorized, req:req, msg :{}})	
@@ -173,7 +169,29 @@ module.exports.product = function(application, req, res){
 		}
 		res.render('product',{logged: req.session.authorized, product : result})
 	})
+	
+}
 
-	
-	
+module.exports.comment = function(application, req, res){
+
+	if(req.session.authorized !== true){
+		res.send('Usuário precisa fazer login');
+		return;
+	}
+
+	var comment = new Comment({
+		text: req.body.comment,
+		username: req.session.username
+	})
+
+	var id = req.query.id_product;
+
+	Product.update({_id: id},{$push:{comments: comment}},function(err){
+		if(err){
+			res.send('fail')
+			return
+		}
+		res.send('oi')
+	})
+
 }

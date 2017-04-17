@@ -34,4 +34,8 @@ module.exports = function(application){
 	application.get('/product', function(req, res){
 		application.controllers.home.product(application,req,res);
 	});
+
+	application.post('/comment', function(req, res){
+		application.controllers.home.comment(application,req,res);
+	});
 }
