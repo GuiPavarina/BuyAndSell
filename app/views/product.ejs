@@ -75,6 +75,9 @@
                     </div>
 
                     <div class="well">
+
+                        <% if(logged){ %>
+
                         <form action="/comment?id_product=<%=product[0]._id%>" method="post">
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="comment" name="comment">
@@ -84,6 +87,12 @@
                                 <button type="submit "class="btn btn-success">Leave a Comment</button>
                             </div>
                         </form>
+
+                        <% } else { %>
+
+                            <h3> You cannot comment, please log in! </h3>
+
+                        <% } %>
 
                         <hr>
 
