@@ -98,20 +98,20 @@
 
                         <% for (index in product[0].comments) { %>
 
-                        <div class="row">
-                            <div class="col-md-12">
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star-empty"></span>
-                                <%= product[0].comments[index].username %>
-                                <span class="pull-right">10 days ago</span>
-                                <p>This product was great in terms of quality. I would definitely buy another!</p>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                    <%= product[0].comments[index].username %>
+                                    <span class="pull-right">10 days ago(not working)</span>
+                                    <p><%= product[0].comments[index].text %></p>
+                                </div>
                             </div>
-                        </div>
 
-                        <hr>
+                            <hr>
 
                         <% } %>
 
