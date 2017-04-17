@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var ComentSchema = mongoose.Schema({
+var CommentSchema = mongoose.Schema({
 	text: String,
 	username: String,
 	created: { type: Date, default: Date.now }
@@ -14,7 +14,7 @@ var ProductSchema = mongoose.Schema({
  		description : String,
  		category: String,
  		created: { type: Date, default: Date.now },
- 		coments : [ComentSchema]
+ 		comments : [CommentSchema]
  	});
 
 var Product = mongoose.model('Product', ProductSchema);
