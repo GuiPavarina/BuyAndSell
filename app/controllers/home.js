@@ -168,6 +168,7 @@ module.exports.product = function(application, req, res){
 			return
 		}
 		console.log(result[0].comments[0].text)
+		console.log(result[0].comments[0].length)
 		res.render('product',{logged: req.session.authorized, product : result})
 	})
 	
