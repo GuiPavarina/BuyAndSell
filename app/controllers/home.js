@@ -125,7 +125,7 @@ module.exports.delete = function(application, req, res){
 
 	var id = req.query.id_product;
 
-	Product.remove({ _id: id }, function(err) {
+	Product.remove({ _id: id, username : req.session.username }, function(err) {
 	    if (err) {
 	    	res.send('fail')
 	    }
@@ -146,7 +146,7 @@ module.exports.updateTrue = function(application, req, res){
 	var id = req.query.id_product;
 	var form = req.body;
 
-	Product.update({_id : id},{ description : form.description, price: form.value },{multi : false},function(err, result){
+	Product.update({ _id: id, username : req.session.username },{ description : form.description, price: form.value },{multi : false},function(err, result){
 		if(err){
 			res.send('fail')
 			return
