@@ -6,7 +6,7 @@ var ObjectID = require('mongodb').ObjectID;
 module.exports.home = function(application, req, res){
 	
 	if(req.session.authorized !== true){
-		res.send('Usuário precisa fazer login');
+		res.send('User must be logged in');
 		return;
 	}
 
@@ -25,7 +25,7 @@ module.exports.logout = function(application, req, res){
 module.exports.form_insert_product = function(application, req, res){
 
 	if(req.session.authorized !== true){
-		res.send('Usuário precisa fazer login');
+		res.send('User must be logged in');
 		return;
 	}
 
@@ -36,7 +36,7 @@ module.exports.form_insert_product = function(application, req, res){
 module.exports.addproduct = function(application, req, res){
 
 	if(req.session.authorized !== true){
-		res.send('Usuário precisa fazer login');
+		res.send('User must be logged in');
 		return;
 	}
 
@@ -50,12 +50,12 @@ module.exports.addproduct = function(application, req, res){
 
 	product.save(function(err){
 		if(err){
-			res.send('FAIL P');
+			res.send('fail');
 			return;
 		}
 	})
 
-	var msg = "Produto inserido com sucesso"
+	var msg = "Product successfully inserted"
 
 	res.render('home',{logged:req.session.authorized, req:req , msg : msg})	
 }
@@ -63,7 +63,7 @@ module.exports.addproduct = function(application, req, res){
 module.exports.myproducts = function(application, req, res){
 
 	if(req.session.authorized !== true){
-		res.send('Usuário precisa fazer login');
+		res.send('User must be logged in');
 		return;
 	}
 
@@ -83,7 +83,7 @@ module.exports.myproducts = function(application, req, res){
 module.exports.allproducts = function(application, req, res){
 
 	if(req.session.authorized !== true){
-		res.send('Usuário precisa fazer login');
+		res.send('User must be logged in');
 		return;
 	}
 
@@ -100,7 +100,7 @@ module.exports.allproducts = function(application, req, res){
 module.exports.update = function(application, req, res){
 
 	if(req.session.authorized !== true){
-		res.send('Usuário precisa fazer login');
+		res.send('User must be logged in');
 		return;
 	}
 
@@ -119,7 +119,7 @@ module.exports.update = function(application, req, res){
 module.exports.delete = function(application, req, res){
 
 	if(req.session.authorized !== true){
-		res.send('Usuário precisa fazer login');
+		res.send('User must be logged in');
 		return;
 	}
 
@@ -139,7 +139,7 @@ module.exports.delete = function(application, req, res){
 module.exports.updateTrue = function(application, req, res){
 
 	if(req.session.authorized !== true){
-		res.send('Usuário precisa fazer login');
+		res.send('User must be logged in');
 		return;
 	}
 
@@ -176,7 +176,7 @@ module.exports.product = function(application, req, res){
 module.exports.comment = function(application, req, res){
 
 	if(req.session.authorized !== true){
-		res.send('Usuário precisa fazer login');
+		res.send('User must be logged in');
 		return;
 	}
 

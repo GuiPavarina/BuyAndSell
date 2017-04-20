@@ -53,5 +53,5 @@ module.exports.register = function(application, req, res){
 	    transporter.close();
 	});
 
-	res.redirect('login')
+	res.redirect('login',{msg: {}})
 }

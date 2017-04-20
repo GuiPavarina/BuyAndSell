@@ -7,7 +7,8 @@ module.exports.authenticate = function(application, req, res){
 			return err
 		}
 		if(users === null){
-			res.send('Não existe')
+			var msg = "Incorrect username or password !!"
+			res.render('login',{msg : msg})
 			return
 		}
 

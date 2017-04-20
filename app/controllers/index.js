@@ -8,7 +8,7 @@ module.exports.login = function(application, req, res){
 	if(req.session.authorized){
 		res.render('home',{logged:{}, req: req, msg: {}});
 	} else {
-		res.render('login');
+		res.render('login',{msg: {}});
 	}
 }
 
