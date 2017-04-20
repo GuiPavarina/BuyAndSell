@@ -2,6 +2,8 @@
 
 UTILIZAR PARA DEPLOY NO HEROKU
 
+*/
+
 module.exports = function(application){
 	application.get('/logout', function(req, res){
 		application.controllers.home.logout(application,req,res);
@@ -43,13 +45,13 @@ module.exports = function(application){
 		application.controllers.home.comment(application,req,res);
 	});
 }
-*/
+
 
 /*
 
 Utilizar para testes locais
 
-*/
+
 
 module.exports = function(application){
 	application.get('/logout', function(req, res){
@@ -92,3 +94,4 @@ module.exports = function(application){
 		application.app.controllers.home.comment(application,req,res);
 	});
 }
+*/

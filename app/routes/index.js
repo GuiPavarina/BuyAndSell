@@ -1,6 +1,6 @@
 /*
 	UTILIZAR PARA DEPLOY NO HEROKU
-
+*/
 module.exports = function(application){
 	application.get('/', function(req, res){
 		application.controllers.index.index(application,req,res);
@@ -18,13 +18,12 @@ module.exports = function(application){
 		application.controllers.index.products(application,req,res);
 	});
 }
-*/
+
 
 /*
 
 Utilizar para testes locais
 
-*/
 
 module.exports = function(application){
 	application.get('/', function(req, res){
@@ -43,3 +42,5 @@ module.exports = function(application){
 		application.app.controllers.index.products(application,req,res);
 	});
 }
+
+*/
