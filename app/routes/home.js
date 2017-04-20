@@ -47,7 +47,7 @@ module.exports = function(application){
 
 /*
 
-Utilizar para testes locais
+Utilizar para testes locais .
 
 */
 
