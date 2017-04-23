@@ -1,4 +1,4 @@
-<h3> All products for sale </h3>
+<h3> My recent purchases  </h3>
 <div class="row">
     <% for(var i = 0 ; i < products.length; i++){ %>
       <div class="col-sm-4 col-lg-4 col-md-4">
@@ -6,16 +6,14 @@
             <img src="images/<%=products[i].category%>.jpg" style="max-height: 150px; max-width: 320px;">
             <div class="caption">
                 <h4 class="pull-right">$<%= products[i].price%></h4>
-                <h4><a href="/product?id_product=<%=products[i]._id%>"><%= products[i].name %></a>
+                <h4><p><%= products[i].name %></p>
                 </h4>
                 <p> <%= products[i].description %> </p>
                 <p> Created: <%= products[i].created.toLocaleString() %> </p>
             </div>
             <div class="ratings">
                 <p class="pull-right"><%= products[i].username %></p>
-                <p>
-                    <a type="button" href="/buy?id_product=<%=products[i]._id%>" class="btn btn-success">Buy It Now</a>
-                </p>
+                <p> <strong> SOLD </strong> </p>
             </div>
         </div>
       </div>

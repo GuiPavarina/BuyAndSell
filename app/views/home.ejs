@@ -21,7 +21,6 @@
 
     <script type="text/javascript"> 
 
-
       $(document).ready( function(){
         
         $('#add_product').click(function(){
@@ -51,7 +50,17 @@
             success: function(data){
               $('#main-menu').html(data)
             }
-          });
+          });         
+        })
+
+        $('#recent_purchases').click(function(){
+          $.ajax({
+            url: '/recents',
+            method: "get",
+            success: function(data){
+              $('#main-menu').html(data)
+            }
+          });         
         })
 
       });
@@ -86,6 +95,7 @@
             <a id="view_myproducts" class="list-group-item" style="cursor: pointer;"> My products <span class="badge"><%= result.products %></span></a>
             <a id="add_product" class="list-group-item" style="cursor: pointer;"> New product </a>
             <a id="view_products" class="list-group-item" style="cursor: pointer;"> All products for sale </a>
+            <a id="recent_purchases" class="list-group-item" style="cursor: pointer;"> Recent purchases </a>
           </div>
         </div>
 
@@ -106,6 +116,11 @@
           <% if(msg == 'removed'){ %>
             <div class="alert alert-success">
               <strong>Product successfully removed!</strong>
+            </div>
+          <% } %>
+          <% if(msg == 'sold'){ %>
+            <div class="alert alert-success">
+              <strong>You bought a new product, pelase check you Recent purchases</strong>
             </div>
           <% } %>
           

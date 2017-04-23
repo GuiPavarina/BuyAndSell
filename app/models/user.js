@@ -22,7 +22,7 @@ var UserSchema = mongoose.Schema({
 	},
 	cash: { 
 		type : Number,
-		default : 0
+		default : 1000
 	},
 	products: { 
 		type : Number,

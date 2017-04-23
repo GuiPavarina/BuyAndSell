@@ -59,7 +59,8 @@ module.exports.addproduct = function(application, req, res){
 		username : req.session.username,
 		price: req.body.value,
  		description : req.body.description,
- 		category: req.body.category
+ 		category: req.body.category,
+ 		status : "SALE"
 	});
 
 	product.save(function(err){
@@ -88,7 +89,7 @@ module.exports.myproducts = function(application, req, res){
 
 	var username = req.session.username;
 
-	Product.find({username : username},function(err, result){
+	Product.find({username : username, status : "SALE"},function(err, result){
 		if(err){
 			res.send('fail')
 			return
@@ -106,7 +107,7 @@ module.exports.allproducts = function(application, req, res){
 		return;
 	}
 
-	Product.find({},function(err, result){
+	Product.find({status: "SALE"},function(err, result){
 		if(err){
 			res.send('fail')
 			return
@@ -124,13 +125,21 @@ module.exports.update = function(application, req, res){
 	}
 
 	var id = req.query.id_product;
+	var username = req.session.username
 
-	Product.find({_id : id},function(err, result){
+	Product.find({_id : id},function(err, product){
 		if(err){
 			res.send('fail')
 			return
 		}
-		res.render('update',{product : result})
+
+		User.find({username : username, status : "SALE"}, function(err, result){
+			if(err){
+				res.send('fail')
+				return
+			}
+			res.render('update',{product : product, result: result[0]})
+		})
 	})
 	
 }
@@ -219,4 +228,75 @@ module.exports.comment = function(application, req, res){
 		res.redirect('/product?id_product='+id)
 	})
 
+}
+
+module.exports.buy = function(application, req, res){
+
+	if(req.session.authorized !== true){
+		res.send('User must be logged in');
+		return;
+	}
+
+	var id = req.query.id_product;
+
+	var buyer_money;
+
+	User.find({username: req.session.username},function(err,result){
+		if(err){
+			res.send('fail')
+			return
+		}
+		buyer_money = result[0].cash
+	})
+
+	Product.find({ _id : id,status : "SALE"},function(err,product){
+		if(err){
+			res.send('fail')
+			return
+		}
+		if( product[0].username == req.session.username){
+			res.send('You can not buy your own product')
+			return
+		}
+		if(buyer_money < product[0].price){
+			res.send('You dont have money')
+			return
+		}
+		User.update({username: req.session.username},{"$inc":{cash: -(product[0].price)}},function(err){
+			if(err){
+				res.send('fail')
+				return
+			}
+		})
+		User.update({username: product[0].username},{"$inc":{products: -1, cash: product[0].price}},function(err){
+			if(err){
+				res.send('fail')
+				return
+			}
+		})
+		Product.update({_id: id},{"$set":{username:req.session.username, status: "SOLD"}},function(err){
+			if(err){
+				res.send('fail')
+				return
+			}
+		})
+
+		res.redirect('home?msg=sold')
+	})	
+}
+
+module.exports.recents = function(application, req, res){
+
+	if(req.session.authorized !== true){
+		res.send('User must be logged in');
+		return;
+	}
+
+	Product.find({username: req.session.username , status: "SOLD"},function(err,result){
+		if(err){
+				res.send('fail')
+				return
+			}
+		res.render('recent_purchases',{products: result})
+	})
 }

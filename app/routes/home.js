@@ -1,8 +1,8 @@
 /* 
 
 UTILIZAR PARA DEPLOY NO HEROKU
-*/
 
+*/
 
 module.exports = function(application){
 	application.get('/logout', function(req, res){
@@ -43,6 +43,14 @@ module.exports = function(application){
 
 	application.post('/comment', function(req, res){
 		application.controllers.home.comment(application,req,res);
+	});
+
+	application.get('/buy', function(req, res){
+		application.controllers.home.buy(application,req,res);
+	});
+
+	application.get('/recents', function(req, res){
+		application.controllers.home.recents(application,req,res);
 	});
 }
 
@@ -92,6 +100,14 @@ module.exports = function(application){
 
 	application.post('/comment', function(req, res){
 		application.app.controllers.home.comment(application,req,res);
+	});
+
+	application.get('/buy', function(req, res){
+		application.app.controllers.home.buy(application,req,res);
+	});
+
+	application.get('/recents', function(req, res){
+		application.app.controllers.home.recents(application,req,res);
 	});
 }
 */

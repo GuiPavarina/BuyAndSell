@@ -8,7 +8,9 @@ var ProductSchema = mongoose.Schema({
  		description : String,
  		category: String,
  		created: { type: Date, default: Date.now },
- 		comments : []
+ 		comments : [],
+ 		status: { type: String, uppercase: true,
+    		enum: ['SOLD', 'SALE'] }
  	});
 
 var Product = mongoose.model('Product', ProductSchema);

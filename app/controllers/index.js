@@ -22,7 +22,7 @@ module.exports.home = function(application, req, res){
 
 module.exports.products = function(application, req, res){
 
-	Product.find({},function(err, result) { 
+	Product.find({status : "SALE"},function(err, result) { 
 		if(err){
 			res.send('FAIL');
 			return

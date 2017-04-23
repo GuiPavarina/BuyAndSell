@@ -49,8 +49,8 @@ consign()
 	.then('./app/models')
 	.then('./app/controllers')
 	.into(app);
-*/
 
+*/
 /*
 	----->modelo para uso no heroku
 */

@@ -64,7 +64,9 @@
                             <p>Product description: <%=product[0].description%></p>
                         </div>
                         <div class="ratings">
-                            <p class="pull-right">3 reviews</p>
+                            <% if(logged){ %>
+                                 <p class="pull-right"><a type="button" href="/buy?id_product=<%=product[0]._id%>" class="btn btn-success">Buy It Now!</a></p>
+                            <% } %>
                             <p>
                                 <span class="glyphicon glyphicon-star"></span>
                                 <span class="glyphicon glyphicon-star"></span>
