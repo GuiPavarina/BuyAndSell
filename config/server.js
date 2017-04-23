@@ -43,24 +43,24 @@ app.use(expressSession({
 	-->Verificar os arquivos de rotas ( ../app/routes/ ) <--
 
 
-
+*/
 consign()
 	.include('./app/routes')
 	.then('./app/models')
 	.then('./app/controllers')
 	.into(app);
 
-*/
+
 /*
 	----->modelo para uso no heroku
-*/
+
 consign({cwd: process.cwd()+"/app"})
 	.include('./routes')
 	.then('./models')
 	.then('./controllers')
 	.into(app);
 
-
+*/
 
 /* exportar o objeto app */
 module.exports = app;
