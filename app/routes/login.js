@@ -1,6 +1,6 @@
 /*
 	UTILIZAR PARA DEPLOY NO HEROKU
-
+*/
 module.exports = function(application){
 	application.post('/authenticate', function(req, res){
 		application.controllers.login.authenticate(application,req,res);
@@ -11,14 +11,14 @@ module.exports = function(application){
 	});
 
 }
-*/
+
 
 /*
 
 Utilizar para testes locais
 
 
-*/
+
 module.exports = function(application){
 	application.post('/authenticate', function(req, res){
 		application.app.controllers.login.authenticate(application,req,res);
@@ -29,3 +29,4 @@ module.exports = function(application){
 	});
 
 }
+*/
