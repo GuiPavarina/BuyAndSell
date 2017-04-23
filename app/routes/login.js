@@ -13,7 +13,6 @@ module.exports = function(application){
 }
 
 
-
 /*
 
 Utilizar para testes locais
@@ -29,6 +28,5 @@ module.exports = function(application){
 	});
 
 }
-
 
 */

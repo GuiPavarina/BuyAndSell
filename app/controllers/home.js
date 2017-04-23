@@ -3,6 +3,7 @@ var Product = require('../models/product');
 var Comment = require('../models/comment');
 var ObjectID = require('mongodb').ObjectID;
 
+
 module.exports.home = function(application, req, res){
 	
 	if(req.session.authorized !== true){
@@ -10,7 +11,20 @@ module.exports.home = function(application, req, res){
 		return;
 	}
 
-	res.render('home',{logged:req.session.authorized, req:req, msg :{}})	
+	var username = req.session.username;
+
+	if(req.query.msg != ''){
+		msg = req.query.msg;
+	}
+
+	User.find({username : username}, function(err, result){
+		if(err){
+			res.send('fail')
+			return
+		}
+
+		res.render('home',{logged:req.session.authorized, req:req, msg : msg, result : result[0]})
+	})	
 
 }
 
@@ -55,9 +69,14 @@ module.exports.addproduct = function(application, req, res){
 		}
 	})
 
-	var msg = "Product successfully inserted"
+	User.update({username: req.session.username},{"$inc":{products: 1}},function(err,result){
+		if(err){
+			res.send('fail')
+			return
+		}
+	})
 
-	res.render('home',{logged:req.session.authorized, req:req , msg : msg})	
+	res.redirect('home?msg=inserted')	
 }
 
 module.exports.myproducts = function(application, req, res){
@@ -131,9 +150,14 @@ module.exports.delete = function(application, req, res){
 	    }
   	});
 
-	var msg = "Product successfully removed!"
+  	User.update({username: req.session.username},{"$inc":{products: -1}},function(err,result){
+		if(err){
+			res.send('fail')
+			return
+		}
+	})
 
-  	res.render('home',{logged:req.session.authorized, req:req , msg : msg})	
+	res.redirect('home?msg=removed')
 }
 
 module.exports.updateTrue = function(application, req, res){
@@ -151,9 +175,9 @@ module.exports.updateTrue = function(application, req, res){
 			res.send('fail')
 			return
 		}
-		var msg = "Product successfully updated!"
 
-  		res.render('home',{logged:req.session.authorized, req:req , msg : msg})	
+		res.redirect('home?msg=updated')
+
 	})
 	
 }

@@ -82,7 +82,8 @@
       <div class="row" style="margin-top: 20px;">
         <div class="col-sm-4 col-md-3 sidebar">
           <div class="list-group">
-            <a id="view_myproducts" class="list-group-item" style="cursor: pointer;"> My products <span class="badge">0</span></a>
+            <p class="list-group-item"><strong> Cash available: $<%= result.cash %></strong></p>
+            <a id="view_myproducts" class="list-group-item" style="cursor: pointer;"> My products <span class="badge"><%= result.products %></span></a>
             <a id="add_product" class="list-group-item" style="cursor: pointer;"> New product </a>
             <a id="view_products" class="list-group-item" style="cursor: pointer;"> All products for sale </a>
           </div>
@@ -90,9 +91,21 @@
 
         <div class="col-sm-8" id="main-menu">
 
-          <% if(msg.length > 0 ){ %>
+          <% if(msg == 'updated'){ %>
             <div class="alert alert-success">
-              <strong><%= msg %></strong>
+              <strong>Product successfully updated!</strong>
+            </div>
+          <% } %>
+
+          <% if(msg == 'inserted'){ %>
+            <div class="alert alert-success">
+              <strong>Product successfully inserted!</strong>
+            </div>
+          <% } %>
+
+          <% if(msg == 'removed'){ %>
+            <div class="alert alert-success">
+              <strong>Product successfully removed!</strong>
             </div>
           <% } %>
           

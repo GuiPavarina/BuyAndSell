@@ -24,8 +24,10 @@
     <%
       var msg_navbar_login = "" 
       if(logged){
+        link_href = "home";
         msg_navbar_login = "My page"
       } else{
+        link_href = "login";
         msg_navbar_login = "Login"
       }
     %>
@@ -43,7 +45,7 @@
             <li><a href="#">Services</a></li>
             <li><a href="#">Contact us</a></li>
             <li><a href="/singup">Sign Up</a></li>
-            <li><a href="/login"><%= msg_navbar_login%></a></li>
+            <li><a href="/<%=link_href%>"><%= msg_navbar_login%></a></li>
           </ul>
         </nav>
       </div>

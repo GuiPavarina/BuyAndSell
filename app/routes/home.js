@@ -1,8 +1,8 @@
 /* 
 
 UTILIZAR PARA DEPLOY NO HEROKU
-
 */
+
 
 module.exports = function(application){
 	application.get('/logout', function(req, res){
