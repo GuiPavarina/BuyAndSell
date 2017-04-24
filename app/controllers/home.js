@@ -274,7 +274,7 @@ module.exports.buy = function(application, req, res){
 				return
 			}
 		})
-		Product.update({_id: id},{"$set":{username:req.session.username, status: "SOLD"}},function(err){
+		Product.update({_id: id},{"$set":{username:req.session.username, status: "SOLD", soldAt: new Date()}},function(err){
 			if(err){
 				res.send('fail')
 				return
@@ -298,5 +298,5 @@ module.exports.recents = function(application, req, res){
 				return
 			}
 		res.render('recent_purchases',{products: result})
-	})
+	}).sort({soldAt : "desc"})
 }
