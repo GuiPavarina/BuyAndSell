@@ -53,6 +53,16 @@
             }
           });
         })
+        
+        $('#recent_purchases').click(function(){
+          $.ajax({
+            url: '/recents',
+            method: "get",
+            success: function(data){
+              $('#main-menu').html(data)
+            }
+          });         
+        })
 
       });
     </script>

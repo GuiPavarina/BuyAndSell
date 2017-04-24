@@ -133,7 +133,7 @@ module.exports.update = function(application, req, res){
 			return
 		}
 
-		User.find({username : username, status : "SALE"}, function(err, result){
+		User.find({username : username}, function(err, result){
 			if(err){
 				res.send('fail')
 				return
