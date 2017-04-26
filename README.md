@@ -13,6 +13,8 @@ I deployed it on heroku, [click here](https://warm-oasis-34963.herokuapp.com/) t
 
 	1. npm i
 	2. nodemon app
+	3. go to localhost:8080
+	4. that's it! :)
 
 
 
